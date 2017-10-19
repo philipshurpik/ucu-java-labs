@@ -1,11 +1,11 @@
 package labSwitch;
 
-import labSwitch.calculator.Insurance;
-import labSwitch.calculator.SwitchInsuranceCalculator;
+import labSwitch.insurance.Insurance;
+import labSwitch.insurance.SwitchInsuranceCalculator;
 
 import java.util.Random;
 
-public class InsuranceService {
+public class Main {
 
     public static void main(String[] args) throws Exception {
         Random random = new Random();
@@ -14,16 +14,22 @@ public class InsuranceService {
         Person person = new Person.PersonBuilder().age(18).discount(5).drivingExperience(0).build();
         double insuranceAmount = random.nextInt(100000) + 2000;
 
+        // Switch version:
         Insurance switchCalculator = new SwitchInsuranceCalculator();
+        String switchString = showPrice(switchCalculator, insuranceType, person, insuranceAmount);
 
-        showPrice(switchCalculator, insuranceType, person, insuranceAmount);
+        // OOP version:
+        Insurance insurance = insuranceType.get();
+        String oopString = showPrice(insurance, insuranceType, person, insuranceAmount);
+
+        System.out.println("The same results: " + switchString.equals(oopString));
     }
 
-    private static void showPrice(Insurance calculator, InsuranceType insuranceType, Person person, double insuranceAmount) {
+    private static String showPrice(Insurance calculator, InsuranceType insuranceType, Person person, double insuranceAmount) {
+        StringBuilder priceString = new StringBuilder();
         try {
             double percentRate = calculator.getPercentRate(insuranceType, person);
             double excessAmount = calculator.getExcessAmount(insuranceType, insuranceAmount);
-            StringBuilder priceString = new StringBuilder();
             priceString.append("Insurance Type: ").append(insuranceType)
                     .append(" Insurance Amount: ").append(insuranceAmount)
                     .append(" Percent Rate: ").append(percentRate)
@@ -34,5 +40,6 @@ public class InsuranceService {
         catch (Exception e) {
             System.out.println("Show price error" + e);
         }
+        return priceString.toString();
     }
 }

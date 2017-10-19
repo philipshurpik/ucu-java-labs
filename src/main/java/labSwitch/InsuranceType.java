@@ -1,3 +1,18 @@
 package labSwitch;
 
-public enum InsuranceType { LIFE_INSURANCE, HOME_INSURANCE, CAR_INSURANCE };
+import labSwitch.insurance.*;
+import java.util.function.Supplier;
+
+public enum InsuranceType {
+    LIFE_INSURANCE(LifeInsurance::new), HOME_INSURANCE(HomeInsurance::new), CAR_INSURANCE(CarInsurance::new);
+
+    private final Supplier<Insurance> constructor;
+
+    InsuranceType(Supplier<Insurance> constructor) {
+        this.constructor = constructor;
+    }
+
+    Insurance get() {
+        return constructor.get();
+    }
+};

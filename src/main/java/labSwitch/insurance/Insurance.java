@@ -1,4 +1,4 @@
-package labSwitch.calculator;
+package labSwitch.insurance;
 
 import labSwitch.InsuranceType;
 import labSwitch.Person;
