@@ -1,4 +1,7 @@
-package labSwitch;
+package labSwitch.calculator;
+
+import labSwitch.InsuranceType;
+import labSwitch.Person;
 
 public interface InsuranceCalculator {
     double getInsurancePercentRate(InsuranceType insuranceType, Person person) throws Exception;

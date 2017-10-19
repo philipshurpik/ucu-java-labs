@@ -1,5 +1,8 @@
 package labSwitch;
 
+import labSwitch.calculator.InsuranceCalculator;
+import labSwitch.calculator.SwitchInsuranceCalculator;
+
 import java.util.Random;
 
 public class InsuranceService {

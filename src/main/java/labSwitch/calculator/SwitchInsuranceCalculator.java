@@ -1,6 +1,10 @@
-package labSwitch;
+package labSwitch.calculator;
 
-class SwitchInsuranceCalculator implements InsuranceCalculator {
+import labSwitch.InsuranceType;
+import labSwitch.Person;
+import labSwitch.calculator.InsuranceCalculator;
+
+public class SwitchInsuranceCalculator implements InsuranceCalculator {
 
     public double getInsurancePercentRate(InsuranceType insuranceType, Person person) throws Exception {
         switch (insuranceType) {
