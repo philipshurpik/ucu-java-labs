@@ -2,11 +2,10 @@ package labSwitch.calculator;
 
 import labSwitch.InsuranceType;
 import labSwitch.Person;
-import labSwitch.calculator.InsuranceCalculator;
 
-public class SwitchInsuranceCalculator implements InsuranceCalculator {
+public class SwitchInsuranceCalculator implements Insurance {
 
-    public double getInsurancePercentRate(InsuranceType insuranceType, Person person) throws Exception {
+    public double getPercentRate(InsuranceType insuranceType, Person person) throws Exception {
         switch (insuranceType) {
             case CAR_INSURANCE:
                 return (10 - person.getAge() * 0.05 - person.getDrivingExperience() * 0.15) * person.getDiscountPercent();
