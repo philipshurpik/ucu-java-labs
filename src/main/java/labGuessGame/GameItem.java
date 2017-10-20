@@ -10,7 +10,10 @@ class GameItem {
 
     ResultType testResult(int number) {
         numberOfTries++;
-        return number > max ? ResultType.MORE : (number < max ? ResultType.LESS : ResultType.EQUAL);
+        if (number == max) {
+            return ResultType.EQUAL;
+        }
+        return number > max ? ResultType.BIGGER : ResultType.SMALLER;
     }
 
     double getScore() {

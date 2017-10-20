@@ -8,7 +8,7 @@ public class Main {
 
         boolean continueGame = true;
         while (continueGame) {
-            guessGame.play(maxNumber);
+            continueGame = guessGame.play(maxNumber);
         }
     }
 }
