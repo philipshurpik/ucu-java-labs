@@ -5,6 +5,8 @@ import java.util.Random;
 
 class GuessGame {
 
+    private GameItem bestGame;
+
     boolean play(int max) {
         Random random = new Random();
         int selectedNumber = random.nextInt(max);
@@ -20,6 +22,9 @@ class GuessGame {
             StringBuilder message = new StringBuilder();
             if (result == ResultType.EQUAL) {
                 score = gameItem.getScore();
+                if (bestGame == null || bestGame.getScore() < score) {
+                    bestGame = gameItem;
+                }
                 message.append("Well done! ").append(userInput).append(" is a correct number. Your score is ").append(score);
             }
             else {
@@ -31,7 +36,8 @@ class GuessGame {
         return true;
     }
 
-    private void printBestScore() {
-
+    void printBestScore() {
+        String message = bestGame == null ? "No best score saved" : "Game best score is: " + bestGame.getScore();
+        JOptionPane.showMessageDialog(null, message);
     }
 }

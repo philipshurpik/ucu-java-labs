@@ -9,6 +9,7 @@ public class Main {
         boolean continueGame = true;
         while (continueGame) {
             continueGame = guessGame.play(maxNumber);
+            guessGame.printBestScore();
         }
     }
 }
