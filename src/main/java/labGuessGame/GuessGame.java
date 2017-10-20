@@ -6,6 +6,14 @@ import java.util.Random;
 class GuessGame {
 
     private GameItem bestGame;
+    private String gameFilePath = "bestGame.obj";
+
+    GuessGame() {
+        Object savedGame = FileUtilities.readObjectFromFile(gameFilePath);
+        if (savedGame != null) {
+            bestGame = (GameItem)savedGame;
+        }
+    }
 
     boolean play(int max) {
         Random random = new Random();
@@ -24,6 +32,7 @@ class GuessGame {
                 score = gameItem.getScore();
                 if (bestGame == null || bestGame.getScore() < score) {
                     bestGame = gameItem;
+                    FileUtilities.writeObjectToFile(gameItem, gameFilePath);
                 }
                 message.append("Well done! ").append(userInput).append(" is a correct number. Your score is ").append(score);
             }

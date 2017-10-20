@@ -1,6 +1,8 @@
 package labGuessGame;
 
-class GameItem {
+import java.io.Serializable;
+
+class GameItem implements Serializable {
     private int max;
     private int numberOfTries = 0;
 
