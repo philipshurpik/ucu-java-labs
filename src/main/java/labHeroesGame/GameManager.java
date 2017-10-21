@@ -30,11 +30,6 @@ class GameManager {
         System.out.printf("%s has %d power and %d hp\n", c1Name, c1.getPower(), c1.getHp());
         System.out.printf("%s has %d power and %d hp\n", c2Name, c2.getPower(), c2.getHp());
 
-        if (c1.getPower() == c2.getPower() && c1.getPower() == 0) {
-            System.out.println("Friendship wins!");
-            return;
-        }
-
         do {
             int index = random.nextInt(2);
             Character first = index == 1 ? c1 : c2;
@@ -48,9 +43,14 @@ class GameManager {
                 System.out.printf("%s kicks %s, but %s %s and has %d hp and %d power\n", firstName, secondName, secondName, text, second.getHp(), second.getPower());
             }
             else {
-                System.out.printf("%s hits %s and %s tragically dies... %s is Winner!", firstName, secondName, secondName, firstName);
+                System.out.printf("%s hits %s and %s tragically dies... \n\n%s is Winner!", firstName, secondName, secondName, firstName);
             }
+
             Thread.sleep(1000);
+            if (c1.getPower() == c2.getPower() && c1.getPower() == 0) {
+                System.out.println("\nFriendship wins!");
+                return;
+            }
         }
         while (c1.isAlive() && c2.isAlive());
     }
