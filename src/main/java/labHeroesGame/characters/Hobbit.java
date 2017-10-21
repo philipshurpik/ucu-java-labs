@@ -1,7 +1,17 @@
 package labHeroesGame.characters;
 
 public class Hobbit extends Character {
-    int power = 0;
-    int hp = 3;
+    Hobbit() {
+        this.setHp(3);
+        this.setPower(0);
+    }
 
+    @Override
+    public void kick(Character enemy) {
+        this.toCry();
+    }
+
+    private void toCry() {
+        System.out.println("Please don't kill me... Crying on the knees... '( ");
+    }
 }

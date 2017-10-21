@@ -1,14 +1,32 @@
 package labHeroesGame.characters;
 
-public abstract class Character {
-    int power;
-    int hp;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
 
-    void kick(Character c) {
+@Getter
+@Setter(AccessLevel.PROTECTED)
+public abstract class Character {
+    private int power;
+    private int hp;
+
+    public void kick(Character c) {
 
     }
 
     boolean isAlive() {
-        return true;
+        return this.hp > 0;
+    }
+
+    void decreaseHp(int number) {
+        this.hp = decrease(this.hp, number);
+    }
+
+    void decreasePower(int number) {
+        this.power = decrease(this.power, number);
+    }
+
+    private int decrease(int value, int number) {
+        return (number > value) ? 0 : value - number;
     }
 }
