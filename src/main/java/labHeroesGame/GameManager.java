@@ -19,29 +19,39 @@ class GameManager {
         }
     }
 
-    private void fight(Character c1, Character c2) {
+    private void fight(Character c1, Character c2) throws InterruptedException {
+        int a = 0;
+        String c1Name = c1.getClass().getSimpleName();
+        String c2Name = c2.getClass().getSimpleName();
+        c2Name = c1Name.equals(c2Name) ? c2Name + " Junior" : c2Name;
+        System.out.printf("Welcome on the Ring!! %s vs %s\n", c1Name, c2Name);
+        System.out.printf("%s has %d power and %d hp\n", c1Name, c1.getPower(), c1.getHp());
+        System.out.printf("%s has %d power and %d hp\n", c2Name, c2.getPower(), c2.getHp());
         do {
+            a++;
             int index = random.nextInt(2);
             Character first = index == 1 ? c1 : c2;
+            String firstName = index == 1 ? c1Name : c2Name;
             Character second = index == 0 ? c1 : c2;
-            String firstName = first.getClass().getSimpleName();
-            String secondName = second.getClass().getSimpleName();
+            String secondName = index == 0 ? c1Name : c2Name;
 
             first.kick(second);
             if (second.isAlive()) {
-                System.out.printf("%s kicks %s, but %s is still alive and has %d hp", firstName, secondName, secondName, second.getHp());
+                Thread.sleep(500);
+                System.out.printf("%s kicks %s, but %s is still alive and has %d hp\n", firstName, secondName, secondName, second.getHp());
                 second.kick(first);
 
                 if (first.isAlive()) {
-                    System.out.printf("%s kicks %s... %s survives and has %d hp", secondName, firstName, firstName, first.getHp());
+                    System.out.printf("%s hits %s... %s survives and has %d hp\n", secondName, firstName, firstName, first.getHp());
                 } else {
-                    System.out.printf("%s kicks back and WIN!!!", secondName);
+                    System.out.printf("%s hits back and WIN!!!\n", secondName);
                 }
             }
             else {
                 System.out.printf("%s kicks %s and %s tragically dies... %s is Winner!", firstName, secondName, secondName, firstName);
             }
+            Thread.sleep(1000);
         }
-        while (c1.isAlive() && c2.isAlive());
+        while (c1.isAlive() && c2.isAlive() && a < 50);
     }
 }
