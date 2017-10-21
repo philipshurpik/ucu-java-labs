@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class CharacterFactory {
+class CharacterFactory {
     private List<Class<? extends Character>> characterClasses = new ArrayList<>();
 
     CharacterFactory() {

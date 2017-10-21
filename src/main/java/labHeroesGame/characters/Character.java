@@ -11,7 +11,6 @@ import java.util.Random;
 public abstract class Character {
     private int power;
     private int hp;
-    Random random = new Random();
 
     public abstract void kick(Character c);
 
@@ -32,6 +31,7 @@ public abstract class Character {
     }
 
     int getRandom(int min, int max) {
+        Random random = new Random();
         return random.nextInt(max - min + 1) + min;
     }
 }

@@ -7,7 +7,7 @@ public interface RandomKick {
 
     default void kick(Character enemy) {
         Random random = new Random();
-        int kickPower = random.nextInt(this.getPower());
+        int kickPower = random.nextInt(this.getPower()) + 1;
         enemy.decreaseHp(kickPower);
     }
 }
