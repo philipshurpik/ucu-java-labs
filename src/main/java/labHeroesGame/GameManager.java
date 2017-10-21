@@ -2,10 +2,13 @@ package labHeroesGame;
 
 import labHeroesGame.characters.Character;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 class GameManager {
     private Random random = new Random();
+    private ArrayList<String> surviveMessages = new ArrayList<>(Arrays.asList("is still alive", "survives"));
 
     void start() {
         try {
@@ -41,18 +44,11 @@ class GameManager {
 
             first.kick(second);
             if (second.isAlive()) {
-                Thread.sleep(500);
-                System.out.printf("%s kicks %s, but %s is still alive and has %d hp and %d power\n", firstName, secondName, secondName, second.getHp(), second.getPower());
-                second.kick(first);
-
-                if (first.isAlive()) {
-                    System.out.printf("%s hits %s... %s survives and has %d hp and %d power\n", secondName, firstName, firstName, first.getHp(), first.getPower());
-                } else {
-                    System.out.printf("%s hits back and WIN!!!\n", secondName);
-                }
+                String text = surviveMessages.get(random.nextInt(surviveMessages.size()));
+                System.out.printf("%s kicks %s, but %s %s and has %d hp and %d power\n", firstName, secondName, secondName, text, second.getHp(), second.getPower());
             }
             else {
-                System.out.printf("%s kicks %s and %s tragically dies... %s is Winner!", firstName, secondName, secondName, firstName);
+                System.out.printf("%s hits %s and %s tragically dies... %s is Winner!", firstName, secondName, secondName, firstName);
             }
             Thread.sleep(1000);
         }
