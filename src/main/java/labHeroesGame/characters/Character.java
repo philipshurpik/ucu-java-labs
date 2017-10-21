@@ -13,9 +13,7 @@ public abstract class Character {
     private int hp;
     Random random = new Random();
 
-    public void kick(Character c) {
-
-    }
+    public abstract void kick(Character c);
 
     public boolean isAlive() {
         return this.hp > 0;

@@ -5,4 +5,9 @@ public class King extends Character implements RandomKick {
         this.setHp(getRandom(5, 15));
         this.setPower(getRandom(5, 15));
     }
+
+    @Override
+    public void kick(Character enemy) {
+        RandomKick.super.kick(enemy);
+    }
 }
