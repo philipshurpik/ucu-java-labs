@@ -1,7 +1,7 @@
 package labHeroesGame.characters;
 
 public class Hobbit extends Character {
-    Hobbit() {
+    public Hobbit() {
         this.setHp(3);
         this.setPower(0);
     }
