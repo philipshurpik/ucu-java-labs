@@ -1,4 +1,4 @@
-package labHeroesGame.characters;
+package hw1.labHeroesGame.characters;
 
 import lombok.AccessLevel;
 import lombok.Getter;

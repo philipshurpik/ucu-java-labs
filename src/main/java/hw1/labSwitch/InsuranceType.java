@@ -1,6 +1,6 @@
-package labSwitch;
+package hw1.labSwitch;
 
-import labSwitch.insurance.*;
+import hw1.labSwitch.insurance.*;
 import java.util.function.Supplier;
 
 public enum InsuranceType {

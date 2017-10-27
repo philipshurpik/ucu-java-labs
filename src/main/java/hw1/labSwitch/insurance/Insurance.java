@@ -1,7 +1,7 @@
-package labSwitch.insurance;
+package hw1.labSwitch.insurance;
 
-import labSwitch.InsuranceType;
-import labSwitch.Person;
+import hw1.labSwitch.InsuranceType;
+import hw1.labSwitch.Person;
 
 public interface Insurance {
     double getPercentRate(InsuranceType insuranceType, Person person) throws Exception;

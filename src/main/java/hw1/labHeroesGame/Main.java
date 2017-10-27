@@ -1,4 +1,4 @@
-package labHeroesGame;
+package hw1.labHeroesGame;
 
 public class Main {
 

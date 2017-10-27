@@ -1,4 +1,4 @@
-package labGuessGame;
+package hw1.labGuessGame;
 
 public class Main {
 

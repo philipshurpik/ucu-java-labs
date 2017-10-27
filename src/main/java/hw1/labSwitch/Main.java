@@ -1,7 +1,7 @@
-package labSwitch;
+package hw1.labSwitch;
 
-import labSwitch.insurance.Insurance;
-import labSwitch.insurance.SwitchInsuranceCalculator;
+import hw1.labSwitch.insurance.Insurance;
+import hw1.labSwitch.insurance.SwitchInsuranceCalculator;
 
 import java.util.Random;
 

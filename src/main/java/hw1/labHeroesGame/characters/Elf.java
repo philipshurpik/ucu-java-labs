@@ -1,4 +1,4 @@
-package labHeroesGame.characters;
+package hw1.labHeroesGame.characters;
 
 public class Elf extends Character {
     public Elf() {

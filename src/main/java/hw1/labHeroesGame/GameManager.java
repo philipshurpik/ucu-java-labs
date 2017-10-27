@@ -1,6 +1,6 @@
-package labHeroesGame;
+package hw1.labHeroesGame;
 
-import labHeroesGame.characters.Character;
+import hw1.labHeroesGame.characters.Character;
 
 import java.util.ArrayList;
 import java.util.Arrays;

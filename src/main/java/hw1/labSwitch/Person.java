@@ -1,4 +1,4 @@
-package labSwitch;
+package hw1.labSwitch;
 
 import lombok.Builder;
 import lombok.Data;
