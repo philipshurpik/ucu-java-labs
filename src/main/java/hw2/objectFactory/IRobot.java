@@ -1,5 +1,6 @@
 package hw2.objectFactory;
 
+import hw2.objectFactory.annotations.InjectRandomInt;
 import hw2.objectFactory.cleaner.Cleaner;
 import hw2.objectFactory.speaker.Speaker;
 import lombok.Getter;

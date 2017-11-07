@@ -1,6 +1,6 @@
 package hw2.objectFactory.cleaner;
 
-import hw2.objectFactory.InjectRandomInt;
+import hw2.objectFactory.annotations.InjectRandomInt;
 
 public class CleanerImpl implements Cleaner {
     @InjectRandomInt(min = 3, max = 7)

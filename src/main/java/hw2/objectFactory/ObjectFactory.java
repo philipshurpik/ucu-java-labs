@@ -1,17 +1,18 @@
 package hw2.objectFactory;
 
+import hw2.objectFactory.annotations.AnnotationConfigurator;
+import hw2.objectFactory.annotations.AnnotationsConfig;
 import hw2.objectFactory.config.Config;
 import hw2.objectFactory.config.JavaConfig;
 import lombok.SneakyThrows;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
-import java.util.Random;
 
 public class ObjectFactory {
     private static ObjectFactory ourInstance = new ObjectFactory();
     private Config config = new JavaConfig();
-    private Random random = new Random();
+    private AnnotationsConfig annotationsConfig = new AnnotationsConfig();
 
     public static ObjectFactory getInstance() {
         return ourInstance;
@@ -34,19 +35,11 @@ public class ObjectFactory {
 
                 Annotation fieldAnnotation = field.getAnnotation(annotation.annotationType());
                 if (fieldAnnotation != null) {
-                    configureAnnotation(instance, field, (InjectRandomInt) fieldAnnotation);
+                    AnnotationConfigurator configurator = annotationsConfig.getConfigurator(fieldAnnotation.annotationType());
+                    configurator.configure(instance, field, fieldAnnotation);
                 }
             }
         }
         return instance;
-    }
-
-    @SneakyThrows
-    private void configureAnnotation(Object instance, Field field, InjectRandomInt annotation) {
-        int min = annotation.min();
-        int max = annotation.max();
-        int randomIntValue = random.nextInt(max - min) + min;
-        field.setAccessible(true);
-        field.set(instance, randomIntValue);
     }
 }
