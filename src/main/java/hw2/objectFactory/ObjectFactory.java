@@ -1,7 +1,8 @@
 package hw2.objectFactory;
 
 import hw2.objectFactory.annotations.AnnotationConfigurator;
-import hw2.objectFactory.annotations.AnnotationsConfig;
+import hw2.objectFactory.config.AnnotationsConfig;
+import hw2.objectFactory.config.JavaAnnotationsConfig;
 import hw2.objectFactory.config.Config;
 import hw2.objectFactory.config.JavaConfig;
 import lombok.SneakyThrows;
@@ -12,7 +13,7 @@ import java.lang.reflect.Field;
 public class ObjectFactory {
     private static ObjectFactory ourInstance = new ObjectFactory();
     private Config config = new JavaConfig();
-    private AnnotationsConfig annotationsConfig = new AnnotationsConfig();
+    private AnnotationsConfig annotationsConfig = new JavaAnnotationsConfig();
 
     public static ObjectFactory getInstance() {
         return ourInstance;
